@@ -1,33 +1,33 @@
 ---
 template: default.html
-title: Better, Simpler Grid Systems
-excerpt: Flexbox gives us most of the features we want from a grid system out of the box. And sizing and alignment are just one or two properties away.
+title: より良く、よりシンプルなグリッドシステム
+excerpt: Flexboxはグリッドシステムに求められる機能のほとんどを実現してくれます。サイズや並べ方の調整もたった１つか２つのプロパティを設定するだけです。
 ---
 
-Most grid systems today use one of two layout methods: `float` or `inline-block`. But neither of these methods were really intended to be used for layout and as a result have pretty significant problems and limitations.
+大抵の現代的なグリッドシステムは `float` または `inline-block` の2つのレイアウト手法のうち、どちらか1つを採用しています。しかしそれらの手法はどちらもレイアウトを実現する意図で使うものではないため、結果として重大な問題や制約を引きおこします。
 
-Using floats requires clearing them which has a whole host of layout issues, most notoriously that clearing an element sometimes forces it below an unrelated part of the page (take this [Bootstrap issue](https://github.com/twbs/bootstrap/issues/295#issuecomment-2282969) for example). In addition, clearing floats usually requires using both before and after pseudo-elements, preventing you from using them for something else.
+floatは、レイアウトに関する多くの問題を抱えているために、「クリア」を行なう必要があります。御存知の通り、要素をクリアすると、ページ内の無関係のパーツの下に強制移動させられることがあります（例えばこの [Bootstrap issue](https://github.com/twbs/bootstrap/issues/295#issuecomment-2282969)を参照してください）。加えて、floatをクリアするといつもbeforeとafter擬似要素が必要になり、別の用途に使うことの妨げとなります。
 
-Inline block layouts must address the problem of [white-space between inline-block items](http://css-tricks.com/fighting-the-space-between-inline-block-elements/), and all of the [solutions](http://davidwalsh.name/remove-whitespace-inline-block) to that problem are [hacky](https://github.com/suitcss/components-grid/blob/master/lib/grid.css#L30) and [annoying](https://twitter.com/thierrykoblentz/status/305152267374428160).
+インラインブロックレイアウトは[inline-block アイテム間のホワイトスペース](http://css-tricks.com/fighting-the-space-between-inline-block-elements/)問題に取り組むのに必要ですが、それらの [解決方法](http://davidwalsh.name/remove-whitespace-inline-block) は [ハックに満ちていて](https://github.com/suitcss/components-grid/blob/master/lib/grid.css#L30) 、 [厄介](https://twitter.com/thierrykoblentz/status/305152267374428160)です。
 
-Flexbox not only eliminates these problems, it opens up an entirely new world of possibilities.
+Flexboxはそれらの問題を排除するだけでなく、新たな可能性の世界を開きます。
 
-## Features of a Flexbox Grid System
+## Flexboxグリッドシステムの機能
 
-Grid systems usually come with a myriad of sizing options, but the vast majority of the time you just want two or three elements side-by-side. Given this, why should we be required to put sizing classes on every single cell?
+グリッドシステムは、たいてい無数のサイズオプションを搭載していますが、しかし大多数のケースではせいぜい2〜3の要素を並べたいだけでしょう。これを考慮すると、なぜすべてのセルにサイズクラスを付加することが必須になってしまうのでしょう？
 
-Listed below are some of my criteria for an ideal grid system. Fortunately, with Flexbox we get most of these features for free.
+下記のリストは、私の考える理想のグリッドシステムの基準です。幸運にも、Flexboxはこれらの特徴を無料で提供しています。
 
-- By default, each grid cell is the same width and height as every other cell in the row. Basically they all size to fit by default.
-- For finer control, you can add sizing classes to individual cells. Without these classes, the cells simply divide up the available space as usual.
-- For responsive grids, you can add media query-specific classes to the cells.
-- Individual cells can be aligned vertically to the top, bottom, or middle.
-- When you want all of the cells in a grid to have the same sizing, media, or alignment values, you should be able to just add a single class to the container to avoid unnecessary repetition.
-- Grids can be nested as many levels deep as needed.
+- デフォルトで、行内のそれぞれのグリッドセルは、同じ幅と高さを持つこと。基本的にそれらすべてのサイズはデフォルトで適合していること。
+- より細やかな調整のため、それぞれのセルにサイズクラスを追加できること。クラスがなければ、セルは単にいつも通り利用可能なスペースを分配すること。
+- レスポンシブグリッドの為、メディアクエリ特有のクラスをセルに設定できること。
+- 個別のセルは上、中央、下に垂直位置を整列させることができること。
+- グリッド内のすべてのセルを同じサイズ、メディア、整列値にしたい場合は、単にコンテナにシングルクラスを付加するだけでよく、不要な繰り返しを避けられること。
+- グリッドは必要な限り深くネストできること。
 
-### Basic Grids
+### 基本的なグリッド
 
-The grid cells below do not specify any widths, they just naturally space themselves equally and expand to fit the entire row. They're also equal height by default.
+下記のグリッドセルは幅を指定しておらず、単に等間隔で並び、行全体にフィットするよう拡張します。また、デフォルトで高さも等しくなります。
 
 <div class="Grid Grid--gutters u-textCenter">
   <div class="Grid-cell">
@@ -68,7 +68,7 @@ The grid cells below do not specify any widths, they just naturally space themse
 <div class="Grid Grid--gutters Grid--flexCells">
   <div class="Grid-cell">
     <div class="Demo">
-      Full-height, even when my content doesn't fill the space.
+      コンテンツがスペースを埋めていないにもかかわらず、高さ最大
     </div>
   </div>
 
@@ -79,11 +79,11 @@ The grid cells below do not specify any widths, they just naturally space themse
   </div>
 </div>
 
-### Individual Sizing
+### 個別のサイズ調整
 
-When equal widths aren't what you want, you can add sizing classes to individual cells. Cells without sizing classes simply divide up the remaining space as normal.
+等幅をお望みでなければ、それぞれのセルにサイズクラスを付加できます。サイズクラスなしのセルは通常、単に残っているスペースを分配します。
 
-The cells below labeled "auto" do not have sizing classes specified.
+"auto"と書いてあるセルにはサイズクラス指定がありません。
 
 <div class="Grid Grid--gutters u-textCenter">
   <div class="Grid-cell u-1of2">
@@ -118,11 +118,11 @@ The cells below labeled "auto" do not have sizing classes specified.
   </div>
 </div>
 
-### Responsive
+### レスポンシブ
 
-Responsive Grids work by adding media classes to the Grid cells or containers. When those media values are met, the grids automatically adjust accordingly.
+レスポンシブグリッドはメディアクラスをグリッドセルまたはコンテナに追加することで動作します。メディア値が満たされた時、それにしたがってグリッドは自動的に調整されます。
 
-The cells below should be full width by default and scaled to fit above `48em`. Resize your browser to see them in action.
+以下のセルはデフォルトで最大幅となり、`48em`以上でフィットするよう拡大されます。動作を見るためにブラウザーをリサイズしてみてください。
 
 <div class="Grid Grid--gutters Grid--full large-Grid--fit u-textCenter">
   <div class="Grid-cell">
@@ -146,7 +146,7 @@ The cells below should be full width by default and scaled to fit above `48em`. 
 
 ### Grid-ception
 
-Grid components are infinitely nestable inside of other grid components.
+グリッドコンポーネントは、他のグリッドコンポーネント内部に無限にネスト可能です。
 
 <div class="Grid Grid--gutters Grid--flexCells u-textCenter">
   <div class="Grid-cell">
@@ -175,14 +175,14 @@ Grid components are infinitely nestable inside of other grid components.
   </div>
 </div>
 
-## Alignment Features
+## 整列昨日
 
-### Top-aligned Grid Cells
+### 上ぞろえのグリッドセル
 
 <div class="Grid Grid--gutters Grid--top">
   <div class="Grid-cell">
     <div class="Demo">
-      This cell should be top-aligned.
+      このセルは上ぞろえになります。
     </div>
   </div>
   <div class="Grid-cell u-1of2">
@@ -192,17 +192,17 @@ Grid components are infinitely nestable inside of other grid components.
   </div>
   <div class="Grid-cell">
     <div class="Demo">
-      This cell should be top-aligned.
+      このセルは上ぞろえになります。
     </div>
   </div>
 </div>
 
-### Bottom-aligned Grid Cells
+### 下ぞろえのグリッドセル
 
 <div class="Grid Grid--gutters Grid--bottom">
   <div class="Grid-cell">
     <div class="Demo">
-      This cell should be bottom-aligned.
+      このセルは下ぞろえになります。
     </div>
   </div>
   <div class="Grid-cell">
@@ -212,17 +212,17 @@ Grid components are infinitely nestable inside of other grid components.
   </div>
   <div class="Grid-cell">
     <div class="Demo">
-      This cell should be bottom-aligned.
+      このセルは下ぞろえになります。
     </div>
   </div>
 </div>
 
-### Vertically Centered Grid Cells
+### 垂直中央ぞろえのグリッドセル
 
 <div class="Grid Grid--gutters Grid--center">
   <div class="Grid-cell">
     <div class="Demo">
-      This cell should be vertically-centered with the cell to its right.
+      このセルは、右のセルと一緒に垂直中央ぞろえになります。
     </div>
   </div>
   <div class="Grid-cell">
@@ -231,12 +231,12 @@ Grid components are infinitely nestable inside of other grid components.
   </div>
 </div>
 
-### Mixed Vertical Alignment
+### 混合縦位置整列
 
 <div class="Grid Grid--gutters">
   <div class="Grid-cell Grid-cell--top">
     <div class="Demo">
-      This cell should be top aligned.
+      このセルは上ぞろえになります。
     </div>
   </div>
   <div class="Grid-cell">
@@ -245,12 +245,12 @@ Grid components are infinitely nestable inside of other grid components.
   </div>
   <div class="Grid-cell Grid-cell--center">
     <div class="Demo">
-      This cell should be center-aligned.
+      このセルは中央ぞろえになります。
     </div>
   </div>
   <div class="Grid-cell Grid-cell--bottom">
     <div class="Demo">
-      This cell should be bottom-aligned.
+      このセルは下ぞろえになります。
     </div>
   </div>
 </div>
@@ -267,7 +267,7 @@ Grid components are infinitely nestable inside of other grid components.
 
 ## The CSS
 
-### Basic Grid Styles
+### 基本的なグリッドシステム
 
 ```css
 .Grid {
@@ -279,10 +279,10 @@ Grid components are infinitely nestable inside of other grid components.
 }
 ```
 
-### Grid Style Modifiers
+### グリッドスタイル修飾子
 
 ```css
-/* With gutters */
+/* 隙間あり */
 .Grid--gutters {
   margin: -1em 0 0 -1em;
 }
@@ -290,7 +290,7 @@ Grid components are infinitely nestable inside of other grid components.
   padding: 1em 0 0 1em;
 }
 
-/* Alignment per row */
+/* 行ぞろえ */
 .Grid--top {
   align-items: flex-start;
 }
@@ -301,7 +301,7 @@ Grid components are infinitely nestable inside of other grid components.
   align-items: center;
 }
 
-/* Alignment per cell */
+/* セルごとに整列 */
 .Grid-cell--top {
   align-self: flex-start;
 }
@@ -313,10 +313,10 @@ Grid components are infinitely nestable inside of other grid components.
 }
 ```
 
-### Responsive Modifiers (a mobile-first approach)
+### レスポンシブ修飾子（モバイルファーストアプローチ）
 
 ```css
-/* Base classes for all media */
+/* すべてのメディアに対応するベースクラス */
 .Grid--fit > .Grid-cell {
   flex: 1;
 }
@@ -333,7 +333,7 @@ Grid components are infinitely nestable inside of other grid components.
   flex: 0 0 25%
 }
 
-/* Small to medium screens */
+/* 小〜中サイズのスクリーン */
 @media (min-width: 24em) {
   .small-Grid--fit > .Grid-cell {
     flex: 1;
@@ -352,7 +352,7 @@ Grid components are infinitely nestable inside of other grid components.
   }
 }
 
-/* Large screens */
+/* 大スクリーン */
 @media (min-width: 48em) {
   .large-Grid--fit > .Grid-cell {
     flex: 1;
@@ -372,4 +372,4 @@ Grid components are infinitely nestable inside of other grid components.
 }
 ```
 
-View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/grid.css) for the `Grid` component used in this demo on Github.
+グリッドコンポーネントがデモでどのように使われているか、Githubの[ソース](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/grid.css) 全体を見る。

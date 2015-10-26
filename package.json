@@ -10,7 +10,8 @@
   "scripts": {
     "build": "gulp",
     "start": "gulp serve",
-    "deploy": "gulp clean && gulp deploy"
+    "deploy": "gulp clean && gulp deploy",
+    "textlint": "textlint demos/*.md"
   },
   "devDependencies": {
     "babelify": "^5.0.3",
@@ -38,6 +39,8 @@
     "shelljs": "^0.3.0",
     "suitcss-utils-display": "^0.4.2",
     "suitcss-utils-text": "^0.4.2",
+    "textlint": "^4.1.2",
+    "textlint-plugin-jtf-style": "^0.8.5",
     "through2": "^0.6.3",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.0.0",

@@ -35,7 +35,7 @@ const DEST = './build';
 /**
  * The name of the Github repo.
  */
-const REPO = 'solved-by-flexbox-jp';
+const REPO = 'solved-by-flexbox-ja';
 
 
 function isProd() {

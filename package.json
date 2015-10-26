@@ -1,10 +1,10 @@
 {
   "name": "solved-by-flexbox",
   "description": "A showcase of problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox.",
-  "homepage": "http://philipwalton.github.io/solved-by-flexbox",
+  "homepage": "http://hashrock.github.io/solved-by-flexbox-ja",
   "repository": {
     "type": "git",
-    "url": "https://github.com/philipwalton/solved-by-flexbox.git"
+    "url": "https://github.com/hashrock/solved-by-flexbox-ja.git"
   },
   "license": "MIT",
   "scripts": {

@@ -1,24 +1,24 @@
 ---
 template: holy-grail.html
-title: Holy Grail Layout
-excerpt: This classic problem has been challenging CSS hackers for years, yet none of the historical solutions have fully solved it. With Flexbox, it's finally possible.
+title: 聖杯レイアウト
+excerpt: この古典的な問題には何年にもわたってCSSハッカーが取り組んできましたが、完全な解法は未だかつてありませんでした。Flexboxにより、ついに可能になります。
 ---
 
-The [Holy Grail Layout](http://en.wikipedia.org/wiki/Holy_Grail_(web_design)) is a classic CSS problem with various solutions presented over time. If you're unfamiliar with the history of the Holy Grail layout, this [A List Apart article](http://alistapart.com/article/holygrail) offers a pretty good summary and links to a few of the more well-known solutions.
+[聖杯レイアウト（Holy Grail Layout）](http://en.wikipedia.org/wiki/Holy_Grail_(web_design)) は、長い間いろいろな解法が提示されてきた、古典的なCSSの問題です。もし聖杯レイアウトの歴史についてご存知でなければ、この[A List Apartの記事](http://alistapart.com/article/holygrail)はとても良い要約であり、よく知られた解法についてのリンクとなっています。
 
-At its core, the Holy Grail Layout is a page with a header, footer, and three columns. The center column contains the main content, and the left and right columns contain supplemental content like ads or navigation.
+聖杯レイアウトの本質は、ヘッダーとフッター、3つのカラムのあるページです。中央のカラムはメインコンテンツを含み、左右のカラムは広告やナビゲーションのような補助的なコンテンツを含みます。
 
-Most CSS solutions to this problem aim to meet a few goals:
+この問題を解くためのほとんどのCSSの解法は下記のゴールを目指すものです。
 
-- They should have a fluid center with fixed-width sidebars.
-- The center column (main content) should appear first in the HTML source.
-- All columns should be the same height, regardless of which column is actually the tallest.
-- They should require minimal markup.
-- The footer should "stick" to the bottom of the page when content is sparse.
+- 伸縮する中央のコンテナと、固定幅のサイドバーを持つこと。
+- 中央のカラム（メインコンテンツ）はHTMLソースの最初に登場すること。
+- すべてのカラムは、どのカラムが一番高いかに関係なく、同じ高さであること。
+- 最小限のマークアップしか必要にならないこと。
+- コンテンツの量が少なかったとしても、フッターはページの下部に"固定"されること。
 
-Unfortunately, because of the nature of these goals and the original limitations of CSS, none of the classic solutions to this problem were ever able to satisfy all of them.
+不幸にも、これらのゴールの特質と、CSSの元来の制約により、すべてのゴールを満たす古典的な解法はありませんでした。
 
-With Flexbox, a complete solution is finally possible.
+Flexboxを用いることで、完全な解法がついに可能になります。
 
 ## The HTML
 
@@ -36,7 +36,7 @@ With Flexbox, a complete solution is finally possible.
 
 ## The CSS
 
-Getting the center content row to stretch and the footer to stick to the bottom is solved with the same technique shown in the [Sticky Footer](../sticky-footer/) example. The only difference is the center row of the Holy Grail layout (`.HolyGrail-body`) needs to be `display:flex` in order to properly arrange its children.
+中央のコンテンツを伸縮させ、フッターをページ下部に固定するには、[スティッキーフッター](../sticky-footer/)の例と同じテクニックを使うことで解決できます。唯一の違いは、聖杯レイアウトの中央行（`.HolyGrail-body`）は子を正しく並べる為に`display:flex`が必要になることだけです。
 
 ```css
 .HolyGrail {
@@ -51,7 +51,7 @@ Getting the center content row to stretch and the footer to stick to the bottom 
 }
 ```
 
-Styling three equal-height columns with a fluid center and fixed-width sidebars is just as easy:
+伸縮する中央カラムと固定幅のサイドバーで構成される、3つの同じ高さのカラムのスタイリングは簡単です：
 
 ```css
 .HolyGrail-content {
@@ -59,26 +59,26 @@ Styling three equal-height columns with a fluid center and fixed-width sidebars 
 }
 
 .HolyGrail-nav, .HolyGrail-ads {
-  /* 12em is the width of the columns */
+  /* カラム幅は12em */
   flex: 0 0 12em;
 }
 
 .HolyGrail-nav {
-  /* put the nav on the left */
+  /* ナビゲーションを左に */
   order: -1;
 }
 ```
 
-<aside class="Notice"><strong>Note:</strong>&nbsp; the CSS required to make this demo work cross-browser is slightly different from the CSS shown in the examples above, which assume a fully spec-compliant browser. See the <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/holy-grail.css">comments in the source</a> for more details.</aside>
+<aside class="Notice"><strong>注意:</strong>&nbsp; 上記のCSSはFlexboxのスペックがフル実装されたブラウザーを想定しており、このデモをクロスブラウザで動かすには、少し異なるCSSが必要となります。詳しくは、<a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/holy-grail.css">ソース中のコメント</a> を参照してください。</aside>
 
 
-### Being Responsive
+### レスポンシブ化する
 
-The Holy Grail layout came from an era of Web design when pretty much everyone was browsing on a computer. But with the increasing number of mobile devices and the rising popularity of responsive design, the Holy Grail layout has gone mostly out of fashion.
+聖杯レイアウトはみんながPCブラウザーを使っているWebデザインの時代からやって来ました。しかし、モバイル機器が増えるにつれ、レスポンシブデザインの人気が上昇していまし、聖杯レイアウトも流行から外れつつあります。
 
-Either way, with Flexbox, creating a mobile-first and mobile-friendly version of the Holy Grail layout is easy. The gist is to simply make the center section `flex-direction:column` by default and then `flex-direction:row` for larger screens.
+どのみち、Flexboxなら、モバイルファーストかつモバイルフレンドリーなバージョンの聖杯レイアウトを作ることも簡単です。このgistでは単に中央セクションをデフォルトで`flex-direction:column`にし、より大きなスクリーンでは`flex-direction:row`にします。
 
-Here's a complete example that is responsive and mobile-first. You can also resize this browser window to see it in action.
+以下にレスポンシブかつモバイルファーストな完全な例を示します。ブラウザーをリサイズすることで動作を確認することが出来ます。
 
 ```css
 .HolyGrail,
@@ -106,4 +106,4 @@ Here's a complete example that is responsive and mobile-first. You can also resi
 }
 ```
 
-View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/holy-grail.css) for the `HolyGrail` component used in this demo on Github.
+Github上にある、`HolyGrail`コンポーネントの完全な[ソース](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/holy-grail.css)を参照してください。

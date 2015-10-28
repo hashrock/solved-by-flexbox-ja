@@ -1,14 +1,14 @@
 ---
 template: default.html
-title: Input Add-ons
-excerpt: Creating full-width, fluid input/button pairs has been impossible for most of the history of CSS. With Flexbox it couldn't be easier.
+title: inputアドオン
+excerpt: 最大幅で伸縮可能なinputとbuttonの組み合わせを作ることは、CSSの歴史の中でも最も不可能なことでした。Flexboxを使えば、これ以上無いくらいに簡単です。
 ---
 
-Because of the way input sizing works in CSS, it's almost impossible to append or prepend another element to it and have the input field behave fluidly and take up the remaining space.
+inputのサイズをCSSで調整する手法が原因となり、inputの前後に要素を追加しつつ、inputフィールドを流動的にして余ったスペースを占有させることはほとんど不可能でした。
 
-The only existing way to do this is to either know the exact width of the input, or to use something like `display:table-cell`, which has its own set of problems, most notably the difficulty with positioning anything absolutely inside of the add-on in certain browsers.
+それを実現させるには、inputの実際の幅を取得するか、`display:table-cell`のようにそれ自身にいろいろな問題（特に、クロスブラウザーでアドオン内部に何かを絶対配置するのが難しい）を抱えている手法しかありません。
 
-With Flexbox, all these problems go away, and the code is trivially simple. In addition, you get the input field and the input add-on to be the same height for free.
+Flexboxならそれらの問題はありませんし、コードは自明にシンプルです。加えて、inputフィールドとinputアドオンを同じ高さにすることが出来ます。
 
 <div class="Grid Grid--guttersLg Grid--full med-Grid--fit">
   <div class="Grid-cell">
@@ -57,19 +57,19 @@ With Flexbox, all these problems go away, and the code is trivially simple. In a
 ## The HTML
 
 ```html
-<!-- appending -->
+<!-- 前に追加 -->
 <div class="InputAddOn">
   <input class="InputAddOn-field">
   <button class="InputAddOn-item">…</button>
 </div>
 
-<!-- prepending -->
+<!-- 後に追加 -->
 <div class="InputAddOn">
   <span class="InputAddOn-item">…</span>
   <input class="InputAddOn-field">
 </div>
 
-<!-- both -->
+<!-- 両方 -->
 <div class="InputAddOn">
   <span class="InputAddOn-item">…</span>
   <input class="InputAddOn-field">
@@ -77,7 +77,7 @@ With Flexbox, all these problems go away, and the code is trivially simple. In a
 </div>
 ```
 
-## The CSS
+## CSS
 
 ```css
 .InputAddOn {
@@ -95,4 +95,4 @@ With Flexbox, all these problems go away, and the code is trivially simple. In a
 
 ```
 
-View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/input-add-on.css) for the `InputAddOn` component used in this demo on Github.
+このデモで利用されている`InputAddOn`コンポーネントの完全な[ソース](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/input-add-on.css) はGithubにあります。

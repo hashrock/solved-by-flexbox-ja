@@ -1,26 +1,26 @@
 ---
 template: default.html
-title: Sticky Footer
-excerpt: Getting your footer to stick to the bottom of sparsely contented pages has always been tricky. And if the footer's height is unknown, it's basically impossible. Not so anymore.
+title: スティッキーフッター
+excerpt: ページのコンテンツが少ない時に、ページの下部にフッターを固定することは、常にトリッキーでした。また、フッターの高さが不明な場合、基本的にそれは不可能でした。もうそんなことはありませんが。
 ---
 
 <div class="Demo Demo--spaced">
 
-Click the button below to hide the contents of this page. Notice how the footer sticks to the bottom of the window even when there's not enough content to fill the page.
+このページのコンテンツを隠すために、以下のボタンをクリックしてください。十分にページを埋めるほどのコンテンツがない場合でも、ウィンドウの下部にフッターが固定されることに注目してください。
 
-<button id="collapse-trigger" class="Button"><span class="icon-refresh u-spaceRS"></span> Toggle Contents</button>
+<button id="collapse-trigger" class="Button"><span class="icon-refresh u-spaceRS"></span> コンテンツをトグルする</button>
 
 </div>
 
 <div id="collapsable-content">
 
-Getting the footer to stick to the bottom of pages with sparse content is something just about every Web developer has tried to tackle at some point in his or her career. And, for the most part, it's a solved problem. Yet all the [existing](http://ryanfait.com/resources/footer-stick-to-bottom-of-page/) [solutions](http://ryanfait.com/resources/footer-stick-to-bottom-of-page/) have one significant shortcoming &mdash; they don't work if the height of your footer is unknown.
+「十分なコンテンツがないページの下部に、フッターを固定する」という問題には、おおよそ全てのWeb開発者がキャリアの中で取り組んだことでしょう。大体の部分において、それは解決済みの問題です。すでに[存在する解決方法](http://ryanfait.com/resources/footer-stick-to-bottom-of-page/)の全ては、明白な欠点を抱えています &mdash; フッターの高さが不明ならば動作しないのです。
 
-Flexbox is a perfect fit for this type of problem. While mostly known for laying out content in the horizontal direction, Flexbox actually works just as well for vertical layout problems. All you have to do is wrap the vertical sections in a flex container and choose which ones you want to expand. They'll automatically take up all the available space in their container.
+Flexboxはこの種の問題に完璧にフィットします。Flexboxは水平方向のコンテンツレイアウトでよく知られていますが、実際のところ、垂直方向のレイアウトに関する問題に対しても同様に役立ちます。垂直なセクションをflexコンテナの中に包み込み、どのセクションを伸縮させるかを選ぶ、たったそれだけでいいのです。それらのセクションは、コンテナ内のスペースを自動的に全て占有します。
 
-In the example below, the container is set to the height of the window, and the content area is told to expand as needed. *(Note: in the vertical direction you need to specify a height for the container. This is different from the horizontal direction, which automatically expands to fit.)*
+下記の例では、コンテナはwindowの高さに設定されており、コンテンツエリアは必要に応じて拡張するように設定されています。*（注意：水平方向の場合は自動的に拡張しましたが、それと異なり、垂直方向の場合はコンテナに高さを指定する必要があります。）*
 
-## The HTML
+## HTML
 
 ```xml
 <body class="Site">
@@ -30,7 +30,7 @@ In the example below, the container is set to the height of the window, and the 
 </body>
 ```
 
-## The CSS
+## CSS
 
 ```css
 .Site {
@@ -44,9 +44,9 @@ In the example below, the container is set to the height of the window, and the 
 }
 ```
 
-View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/site.css) for the `Site` component used in this demo on Github.
+デモで利用している`Site`コンポーネントの完全な[ソース](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/site.css)はGithubにあります。
 
-<aside class="Notice"><strong>Note:</strong>&nbsp; the CSS required to make this demo work cross-browser is slightly different from the CSS shown in the example above, which assumes a fully spec-compliant browser. See the <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/site.css">comments in the source</a> for more details.</aside>
+<aside class="Notice"><strong>注意：</strong>&nbsp; 上記のCSSはFlexboxのスペックがフル実装されたブラウザーを想定しており、このデモをクロスブラウザで動かすには、少し異なるCSSが必要となります。詳しくは、<a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/site.css">ソース中のコメント</a> を参照してください。
 
 </div>
 

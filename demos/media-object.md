@@ -1,18 +1,18 @@
 ---
 template: default.html
-title: Media Object
-excerpt: Create media objects with fixed or varying figure sizes without worrying about overflow, clearfixing, or block formatting context hacks.
+title: メディアオブジェクト
+excerpt: オーバーフロー、clearfixまたはブロック整形文脈のハックについて心配する必要のない、固定もしくは様々なサイズのメディアオブジェクトを作成します。
 ---
 
-The [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code) is the poster-child of Object Oriented CSS</a> (OOCSS). Its simplicity and utility have converted many a CSS developer (myself included) to the OOCSS methodology.
+[メディアオブジェクト](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code)は、オブジェクト指向CSS(OOCSS)の典型です。そのシンプルさと便利さは多くのCSS開発者（筆者自身を含む）をOOCSSの方法論に転向させました。
 
-But like most CSS layout techniques, the media object must resort to tricks and hacks to accomplish its goals.
+しかし、ほとんどのCSSレイアウトのテクニックと同様に、メディアオブジェクトはその目的を果たすためにトリックやハックに頼っています。
 
-The media object's body must prevent text from wrapping below the image by either creating a [block formatting context](http://www.stubbornella.org/content/2013/07/31/re-visiting-the-secret-power-of-block-fomatting-context/) or using a left margin/padding equal to the width of the image. The media object must also clearfix its body which requires either `overflow:hidden` or having to use the pseudo-elements.
+メディアオブジェクトの本体は、[ブロック整形文脈](http://www.stubbornella.org/content/2013/07/31/re-visiting-the-secret-power-of-block-fomatting-context/)もしくは、左マージン/パディングを画像の幅と等しくするかのどちらかの方法で、画像の下にテキストが覆われてしまうのを防止しなければなりません。また、`overflow:hidden`または擬似要素のどちらかを使って、メディアオブジェクトの本体をclearfixしなければなりません。
 
-With Flexbox these problems are solved. In addition, Flexbox allows us to vertically align the media object figure however we want. We can also easily align the figure to the right without needing to change the source order.
+Flexboxでは、これらの問題は解決されています。加えて、Flexboxはメディアオブジェクトがどのような形状だったとしても、垂直方向に整列させることができます。また、ソース中の順番を変更することなく、図を右側に並べることができます。
 
-## Basic Examples
+## 簡単な例
 
 <div class="Grid Grid--guttersLg Grid--full large-Grid--fit">
   <div class="Grid-cell">
@@ -20,7 +20,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
       <div class="Media">
         <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
-          <h3 class="Media-title">Standard Media Object</h3>
+          <h3 class="Media-title">普通のメディアオブジェクト</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac nisl quis massa vulputate adipiscing. Vivamus sit amet risus ligula. Nunc eu pulvinar augue.</p>
         </div>
       </div>
@@ -29,7 +29,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
       <div class="Media">
         <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
-          <h3 class="Media-title">Standard Media Object</h3>
+          <h3 class="Media-title">普通のメディアオブジェクト</h3>
           <p>Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.</p>
         </div>
       </div>
@@ -40,7 +40,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
       <div class="Media Media--reverse">
         <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
-          <h3 class="Media-title">Media Object Reversed</h3>
+          <h3 class="Media-title">反転させたメディアオブジェクト</h3>
           <p>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo. Donec tortor massa, eleifend nec viverra in, aliquet at eros. Mauris laoreet condimentum mauris, non tempor massa fermentum ut. Integer gravida pharetra cursus. Nunc in suscipit nunc.</p>
         </div>
       </div>
@@ -48,7 +48,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
   </div>
 </div>
 
-## Non-images
+## 画像不使用
 
 <div class="Grid Grid--guttersLg Grid--full large-Grid--fit">
   <div class="Grid-cell">
@@ -56,7 +56,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
       <div class="Media">
         <figure class="Media-figure"><span class="icon-comments icon-big"></span></figure>
         <div class="Media-body">
-          <h3 class="Media-title">Using Icons</h3>
+          <h3 class="Media-title">アイコンを利用</h3>
           <p>Donec imperdiet sem leo, id rutrum risus aliquam vitae. Vestibulum ac turpis non lacus dignissim dignissim eu sed dui.</p>
         </div>
       </div>
@@ -67,7 +67,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
       <div class="Media Media--center">
         <figure class="Media-figure"><span class="icon-info-sign icon-big"></span></figure>
         <div class="Media-body">
-          <h3 class="Media-title">Vertically Centering the Figure</h3>
+          <h3 class="Media-title">図を垂直にセンタリング</h3>
           <p>Nunc nec fermentum dolor. Duis at iaculis turpis. Sed rutrum elit ac egestas dapibus. Duis nec consequat enim.</p>
         </div>
       </div>
@@ -75,7 +75,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
   </div>
 </div>
 
-## Nested Media Objects
+## ネストしたメディアオブジェクト
 
 <div class="Grid Grid--guttersLg Grid--full large-Grid--fit">
   <div class="Grid-cell">
@@ -83,7 +83,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
       <div class="Media">
         <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
-          <h3 class="Media-title">Media Object Title</h3>
+          <h3 class="Media-title">メディアオブジェクトのタイトル</h3>
           <p>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo.</p>
           <div class="Demo Demo--spaced u-smaller">
             <div class="Media">
@@ -119,7 +119,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
       <div class="Media">
         <img class="Media-figure Image" src="{{ site.baseUrl }}images/kitten.jpg" alt="Kitten">
         <div class="Media-body">
-          <h3 class="Media-title">Media Object Title</h3>
+          <h3 class="Media-title">メディアオブジェクトのタイトル</h3>
           <p>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo. Donec tortor massa, eleifend nec viverra in, aliquet at eros. Mauris laoreet condimentum mauris, non tempor massa fermentum ut.</p>
           <div class="Media Media--center u-smaller">
             <span class="Media-figure icon-thumbs-up-alt"></span>
@@ -141,7 +141,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
   </div>
 </div>
 
-## The HTML
+## HTML
 
 ```html
 <div class="Media">
@@ -150,7 +150,7 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
 </div>
 ```
 
-## The CSS
+## CSS
 
 ```css
 .Media {
@@ -167,4 +167,4 @@ With Flexbox these problems are solved. In addition, Flexbox allows us to vertic
 }
 ```
 
-View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/media.css) for the `Media` component used in this demo on Github.
+この例で利用している`Media`コンポーネントの完全な[ソース](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/media.css)はGithubにあります。

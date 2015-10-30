@@ -1,29 +1,30 @@
 ---
 template: default.html
-title: Vertical Centering
-excerpt: This classic problem has been challenging CSS hackers for years, yet none of the historical solutions have fully solved it. With Flexbox, it's finally possible.
+title: 垂直センタリング
+excerpt: CSSハッカーは何年もの間、この古典的な問題に挑戦し続けてきましたが、その全てを解決する歴史的な手法はまだ存在しませんでした。Flexboxなら、ついに可能になります。
+
 ---
 
-The lack of good ways to vertically center elements in CSS has been a dark blemish on its reputation for pretty much its entire existence.
+要素を垂直にセンタリングするいい方法がCSSに存在しないことは、CSSというもの全体の評価にとって汚点であり続けていました。
 
-What makes matters worse is the techniques that do work for vertical centering are obscure and unintuitive, while the obvious choices (like `vertical-align:middle`) never seem to work when you need them.
+何が問題をより悪化させたかというと、垂直センタリングを実現するテクニックはあまり知られておらず非直感的で、`vertical-align:middle`のような最良と思える選択肢は、必要な時には動作したことがないように思われます（※訳注：vertical-alignはブロック要素には適用できないという制約があり、インライン要素とテーブルセルでのみ動作します）。
 
-The current landscape of [vertical centering options](http://css-tricks.com/centering-in-the-unknown/) ranges from negative margins to `display:table-cell` to ridiculous hacks involving full-height pseudo-elements. Yet even though these techniques sometimes get the job done, they don't work in every situation. What if the thing you want to center is of unknown dimensions and isn't the only child of its parent? What if you could use the pseudo-element hack, but you need those pseudo-elements for something else?
+現在の[垂直センタリングの選択肢](http://css-tricks.com/centering-in-the-unknown/)には、`display:table-cell`にネガティブマージンを設定するようなものから、縦幅最大の擬似要素を用いた滑稽なハックまで存在します。それらのテクニックが仕事を完了させることはありますが、すべてのシチュエーションで動作するとは限りません。仮に、センタリングしたい要素が不明なサイズであり、親要素に対してのただひとつの子要素ではないとしたらどうでしょう？仮に擬似要素ハックを使うことが出来たとして、他の用途に擬似要素を使う必要が出てきたらどうでしょう？
 
-With Flexbox, you can stop worrying. You can align anything (vertically or horizontally) quite painlessly with the `align-items`, `align-self`, and `justify-content` properties.
+Flexboxならそんな心配はもうありません。`align-items`、`align-self`や`justify-content`を使って、とても気楽にどんなものでも、垂直にも水平にも整列させることが出来ます。
 
 <div class="Demo Demo--spaced u-ieMinHeightBugFix">
   <div class="Aligner">
     <div class="Aligner-item Aligner-item--fixed">
       <div class="Demo">
-        <h3>I'm Centered!</h3>
-        <p contenteditable="true">This box is both vertically and horizontally centered. Even if the text in this box changes to make it wider or taller, the box will still be centered. Go ahead, give it a try. Just click to edit the text.</p>
+        <h3>これはセンタリングされています！</h3>
+        <p contenteditable="true">このボックスは垂直・水平方向にセンタリングされています。このボックスの中のテキストがボックスの高さや幅を変更しようとも、ボックスは中央に位置し続けます。さあ、クリックしてこのテキストを編集してみましょう。</p>
       </div>
     </div>
   </div>
 </div>
 
-Unlike some of the existing vertical alignment techniques, with Flexbox the presence of sibling elements doesn't affect their ability to be vertically aligned.
+すでに存在する垂直方向の整列テクニックとは異なり、Flexboxを使えば、垂直方向の整列が可能かどうかに兄弟要素が影響することはありません。
 
 <div class="Demo Demo--spaced u-ieMinHeightBugFix">
   <div class="Aligner">
@@ -39,7 +40,7 @@ Unlike some of the existing vertical alignment techniques, with Flexbox the pres
   </div>
 </div>
 
-## The HTML
+## HTML
 
 ```html
 <div class="Aligner">
@@ -49,7 +50,7 @@ Unlike some of the existing vertical alignment techniques, with Flexbox the pres
 </div>
 ```
 
-## The CSS
+## CSS
 
 ```css
 .Aligner {
@@ -71,6 +72,6 @@ Unlike some of the existing vertical alignment techniques, with Flexbox the pres
 }
 ```
 
-View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/aligner.css) for the `Aligner` component used in this demo on Github.
+このデモで使用されている`Aligner`コンポーネントの完全な[ソース](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/aligner.css)はGitHubにあります。
 
-<aside class="Notice"><strong>Note:</strong>&nbsp; the markup and CSS required to make this demo work cross-browser is slightly different from what's shown in the examples above, which assume a fully spec-compliant browser. See the <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/utils/compat.css">comments in the source</a> for more details.</aside>
+<aside class="Notice"><strong>注意：</strong>&nbsp; 上記のCSSはFlexboxのスペックがフル実装されたブラウザーを想定しており、このデモをクロスブラウザで動かすには、少し異なるCSSが必要となります。詳しくは、<a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/utils/compat.css">ソース中のコメント</a> を参照してください。
